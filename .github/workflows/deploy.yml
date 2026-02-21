@@ -24,7 +24,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to Netlify
-        run: npx netlify deploy --build --prod --message "Deploy from GitHub Actions"
+        run: npx netlify deploy --build --prod --skip-functions-cache --message "Deploy from GitHub Actions"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
