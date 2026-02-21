@@ -1,65 +1,214 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+
+const services = [
+  {
+    image: '/images/event.png',
+    title: '活動攝影',
+    description: '論壇、記者會、尾牙、展覽',
+    price: '15,000 起',
+  },
+  {
+    image: '/images/concert.png',
+    title: '音樂會攝影',
+    description: '演唱會、Live House、音樂祭',
+    price: '18,000 起',
+  },
+  {
+    image: '/images/family.png',
+    title: '家庭活動',
+    description: '抓周、生日、全家福',
+    price: '8,000 起',
+  },
+  {
+    image: '/images/wedding.png',
+    title: '婚禮婚紗',
+    description: '結婚、訂婚、婚紗',
+    price: '25,000 起',
+  },
+];
+
+const features = [
+  {
+    icon: '📸',
+    title: '專業拍照',
+    description: '高品質相片，完整記錄精彩時刻',
+  },
+  {
+    icon: '🎬',
+    title: '專業錄影',
+    description: '動態影像，留住感動瞬間',
+  },
+  {
+    icon: '✨',
+    title: '專業後製',
+    description: '精緻修圖剪輯，呈現最佳效果',
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero.png"
+            alt="專業攝影服務"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/80 via-stone-900/60 to-stone-900/40" />
+        </div>
+        <div className="relative max-w-6xl mx-auto px-4 py-24 sm:py-40">
+          <div className="text-center text-white">
+            <h1 className="text-4xl sm:text-6xl font-bold mb-4 drop-shadow-lg">
+              圲億行銷設計
+            </h1>
+            <p className="text-xl sm:text-2xl mb-2 text-amber-200">
+              專業活動攝影 · 用影像說故事
+            </p>
+            <p className="text-stone-300 mb-10 max-w-xl mx-auto">
+              從家庭聚會到大型音樂會，我們用心記錄每個珍貴時刻
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/quote">
+                <Button size="lg" className="text-lg px-8 py-6 bg-amber-500 hover:bg-amber-600 text-white shadow-lg">
+                  立即報價
+                </Button>
+              </Link>
+              <a href="https://line.me/ti/p/~luckcegg" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-transparent border-white text-white hover:bg-white/20">
+                  💬 Line 聯繫
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-stone-800 mb-4">
+            服務項目
+          </h2>
+          <p className="text-center text-stone-500 mb-12">
+            多元攝影服務，滿足您的各種需求
           </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service) => (
+              <Link key={service.title} href="/quote">
+                <Card className="hover-lift bg-white overflow-hidden cursor-pointer group">
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  <CardContent className="p-5 text-center">
+                    <h3 className="text-xl font-semibold text-stone-800 mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-stone-500 text-sm mb-3">
+                      {service.description}
+                    </p>
+                    <div className="text-amber-600 font-bold text-lg">
+                      NT$ {service.price}
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 px-4 bg-white/70">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-stone-800 mb-12">
+            為什麼選擇我們
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {features.map((feature) => (
+              <div key={feature.title} className="text-center p-6">
+                <div className="text-5xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold text-stone-800 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-stone-500">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <Card className="bg-gradient-to-r from-amber-100 to-rose-100 border-none shadow-xl">
+            <CardContent className="p-12">
+              <h2 className="text-3xl font-bold text-stone-800 mb-4">
+                立即取得報價
+              </h2>
+              <p className="text-stone-600 mb-8">
+                透過我們的線上報價系統，即時了解服務費用，輕鬆規劃您的活動預算
+              </p>
+              <Link href="/quote">
+                <Button size="lg" className="text-lg px-10 py-6 bg-amber-600 hover:bg-amber-700">
+                  開始報價 →
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 px-4 bg-stone-800 text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+              <h3 className="text-xl font-bold mb-4">圲億行銷設計有限公司</h3>
+              <p className="text-stone-300">
+                專業活動攝影團隊，用心記錄每個重要時刻
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-4">聯絡方式</h3>
+              <div className="space-y-2 text-stone-300">
+                <p>📞 0958-980460</p>
+                <p>💬 Line ID: luckcegg</p>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-4">快速連結</h3>
+              <div className="space-y-2">
+                <Link href="/quote" className="block text-stone-300 hover:text-white transition-colors">
+                  線上報價
+                </Link>
+                <Link href="/admin" className="block text-stone-300 hover:text-white transition-colors">
+                  管理後台
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-stone-700 text-center text-stone-400">
+            <p>© 2024 圲億行銷設計有限公司. All rights reserved.</p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
