@@ -2,7 +2,27 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(npx netlify:*)"
+      "Bash(npx netlify:*)",
+      "Bash(gh repo create:*)",
+      "Bash(Remove-Item -Recurse -Force .next, .netlify -ErrorAction SilentlyContinue)",
+      "Bash(Write-Host \"已清除建置快取\")",
+      "Bash(npx vercel link:*)",
+      "Bash(dir /s /b \"C:\\\\Users\\\\CreatorPC\\\\AppData\\\\*netlify*\")",
+      "Bash(echo:*)",
+      "Bash(git add:*)",
+      "Bash(gh secret set:*)",
+      "Bash(gh workflow run:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run watch:*)",
+      "Bash(gh run view:*)",
+      "Bash(npx vercel login:*)",
+      "Bash(npx vercel whoami:*)",
+      "WebFetch(domain:showmemoney.netlify.app)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(curl:*)",
+      "mcp__nanobanana__generate_image",
+      "Bash(magick:*)"
     ]
   }
 }

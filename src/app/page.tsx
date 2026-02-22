@@ -68,8 +68,15 @@ export default function HomePage() {
         </div>
         <div className="relative max-w-6xl mx-auto px-4 py-24 sm:py-40">
           <div className="text-center text-white">
-            <h1 className="text-4xl sm:text-6xl font-bold mb-4 drop-shadow-lg">
-              圲億行銷設計
+            <h1 className="mb-4 drop-shadow-lg flex justify-center">
+              <Image
+                src="/images/company-name-white.png"
+                alt="圲億行銷設計"
+                width={320}
+                height={48}
+                className="h-12 sm:h-16 w-auto"
+                priority
+              />
             </h1>
             <p className="text-xl sm:text-2xl mb-2 text-amber-200">
               專業活動攝影 · 用影像說故事
@@ -180,7 +187,16 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             <div>
-              <h3 className="text-xl font-bold mb-4">圲億行銷設計有限公司</h3>
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-2 justify-center md:justify-start">
+                <Image
+                  src="/images/company-name-white.png"
+                  alt="圲億行銷設計"
+                  width={160}
+                  height={24}
+                  className="h-6 w-auto"
+                />
+                <span>有限公司</span>
+              </h3>
               <p className="text-stone-300">
                 專業活動攝影團隊，用心記錄每個重要時刻
               </p>
@@ -205,7 +221,17 @@ export default function HomePage() {
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-stone-700 text-center text-stone-400">
-            <p>© 2024 圲億行銷設計有限公司. All rights reserved.</p>
+            <p className="flex items-center justify-center gap-1">
+              © 2024{' '}
+              <Image
+                src="/images/company-name-white.png"
+                alt="圲億行銷設計"
+                width={120}
+                height={18}
+                className="h-4 w-auto inline-block"
+              />
+              有限公司. All rights reserved.
+            </p>
           </div>
         </div>
       </section>
