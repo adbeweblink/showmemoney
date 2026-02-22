@@ -12,6 +12,11 @@ const notoSansTC = Noto_Sans_TC({
 export const metadata: Metadata = {
   title: "攝影報價系統 | 圲億行銷設計",
   description: "專業活動攝影、音樂會攝影、婚禮婚紗攝影報價系統",
+  openGraph: {
+    title: "攝影報價系統 | 圲億行銷設計",
+    description: "專業活動攝影、音樂會攝影、婚禮婚紗攝影報價系統",
+    images: ["/images/og-image.png"],
+  },
   other: {
     "netlify-screenshot-delay": "3000",
   },
